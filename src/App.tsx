@@ -22,10 +22,12 @@ function App() {
       templateAreas={{
         base: `'nav' 'main'`,
         lg: `'nav nav' 'aside main'`,
+        xl: `'nav nav' 'aside main'`,
       }}
       templateColumns={{
         base: '1fr',
-        lg: '200px 1fr', // fixed 200px and other container takes all the empty space
+        lg: '245px 1fr', // fixed 200px and other container takes all the empty space
+        xl: '300px 1fr',
       }}
     >
       <GridItem area='nav'>
