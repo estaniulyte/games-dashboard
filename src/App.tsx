@@ -28,8 +28,8 @@ function App() {
       }}
       templateColumns={{
         base: '1fr',
-        lg: '245px 1fr', // fixed 200px and other container takes all the empty space
-        xl: '300px 1fr',
+        lg: '200px 1fr', // fixed 200px and other container takes all the empty space
+        xl: '250px 1fr',
       }}
     >
       <GridItem area='nav'>
