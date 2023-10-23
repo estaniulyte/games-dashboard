@@ -3,8 +3,6 @@ import useGames from '../hooks/useGames';
 import GameCard from './GameCard';
 import GameCardSkeleton from './GameCardSkeleton';
 import GameCardContainer from './GameCardContainer';
-import { Genre } from '../hooks/useGenres';
-import { Platform } from '../hooks/usePlatforms';
 import { GameQuery } from '../App';
 
 interface Props {
@@ -15,6 +13,11 @@ const GameGrid = ({ gameQuery }: Props) => {
   const { data: games, error, isLoading } = useGames(gameQuery);
 
   const skeletons = Array.from(Array(15).keys());
+
+  if (!isLoading && !games.length && !error)
+    return (
+      <Text paddingY={5}>No games found. Modify your search or filters.</Text>
+    );
 
   return (
     <>
