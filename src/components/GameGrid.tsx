@@ -19,27 +19,26 @@ const GameGrid = ({ gameQuery }: Props) => {
       <Text paddingY={5}>No games found. Modify your search or filters.</Text>
     );
 
+  if (error) return <Text colorScheme='danger'>{error}</Text>;
+
   return (
-    <>
-      {error && <Text colorScheme='danger'>{error}</Text>}
-      <SimpleGrid
-        columns={{ sm: 1, md: 2, lg: 3, xl: 4, '2xl': 5 }}
-        paddingY={5}
-        spacing={4}
-      >
-        {isLoading &&
-          skeletons.map((skeleton) => (
-            <GameCardContainer key={skeleton}>
-              <GameCardSkeleton></GameCardSkeleton>
-            </GameCardContainer>
-          ))}
-        {games.map((game) => (
-          <GameCardContainer key={game.id}>
-            <GameCard game={game} />
+    <SimpleGrid
+      columns={{ sm: 1, md: 2, lg: 3, xl: 4, '2xl': 5 }}
+      paddingY={5}
+      spacing={4}
+    >
+      {isLoading &&
+        skeletons.map((skeleton) => (
+          <GameCardContainer key={skeleton}>
+            <GameCardSkeleton></GameCardSkeleton>
           </GameCardContainer>
         ))}
-      </SimpleGrid>
-    </>
+      {games.map((game) => (
+        <GameCardContainer key={game.id}>
+          <GameCard game={game} />
+        </GameCardContainer>
+      ))}
+    </SimpleGrid>
   );
 };
 
